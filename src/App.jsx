@@ -68,48 +68,55 @@ function App() {
   }
 
   return (
-    <div className="app-shell">
-      <header>
-        <h1>Weather Lookup</h1>
-        <p>Search for current conditions in any city worldwide.</p>
-      </header>
+    <div className="sky">
+      <div className="cloud cloud-one" aria-hidden="true" />
+      <div className="cloud cloud-two" aria-hidden="true" />
+      <div className="cloud cloud-three" aria-hidden="true" />
+      <div className="cloud cloud-four" aria-hidden="true" />
 
-      <form className="search-form" onSubmit={handleSubmit}>
-        <label className="visually-hidden" htmlFor="city-input">
-          City
-        </label>
-        <input
-          id="city-input"
-          type="text"
-          placeholder="e.g. Tokyo, Paris, Toronto"
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-          aria-label="City name"
-        />
-        <button type="submit" disabled={status.loading}>
-          {status.loading ? 'Searching…' : 'Search'}
-        </button>
-      </form>
+      <div className="app-shell">
+        <header>
+          <h1>Weather Lookup</h1>
+          <p>Search for current conditions in any city worldwide.</p>
+        </header>
 
-      {status.error && <p role="alert" className="feedback error">{status.error}</p>}
+        <form className="search-form" onSubmit={handleSubmit}>
+          <label className="visually-hidden" htmlFor="city-input">
+            City
+          </label>
+          <input
+            id="city-input"
+            type="text"
+            placeholder="e.g. Tokyo, Paris, Toronto"
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            aria-label="City name"
+          />
+          <button type="submit" disabled={status.loading}>
+            {status.loading ? 'Searching…' : 'Search'}
+          </button>
+        </form>
 
-      {weather && !status.loading && (
-        <section className="weather-card" aria-live="polite">
-          <h2>{weather.city}</h2>
-          <p className="weather-main">{formatTemperature(weather.temperature)}</p>
-          <p className="weather-description">{weather.description}</p>
-          <div className="weather-details">
-            <div>
-              <span className="label">Feels like</span>
-              <span>{formatTemperature(weather.feelsLike)}</span>
+        {status.error && <p role="alert" className="feedback error">{status.error}</p>}
+
+        {weather && !status.loading && (
+          <section className="weather-card" aria-live="polite">
+            <h2>{weather.city}</h2>
+            <p className="weather-main">{formatTemperature(weather.temperature)}</p>
+            <p className="weather-description">{weather.description}</p>
+            <div className="weather-details">
+              <div>
+                <span className="label">Feels like</span>
+                <span>{formatTemperature(weather.feelsLike)}</span>
+              </div>
+              <div>
+                <span className="label">Humidity</span>
+                <span>{weather.humidity ?? '—'}%</span>
+              </div>
             </div>
-            <div>
-              <span className="label">Humidity</span>
-              <span>{weather.humidity ?? '—'}%</span>
-            </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
+      </div>
     </div>
   )
 }
