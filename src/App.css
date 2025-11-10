@@ -2,7 +2,7 @@
   min-height: 100vh;
   margin: 0 auto;
   padding: 3rem 1.5rem;
-  background: linear-gradient(160deg, #fdf2f8 0%, #fce7f3 38%, #dbeafe 100%);
+  background: linear-gradient(155deg, #fff7ed 0%, #fde68a 40%, #fb923c 100%);
   color: #1f2937;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   display: flex;
@@ -28,11 +28,12 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
+  color: #9a3412;
 }
 
 .app-shell p {
   margin-top: 0.5rem;
-  color: rgba(79, 70, 229, 0.75);
+  color: rgba(124, 45, 18, 0.65);
 }
 
 .search-form {
